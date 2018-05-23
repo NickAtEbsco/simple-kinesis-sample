@@ -19,10 +19,12 @@ public class SimpleProducer {
         config.setRecordMaxBufferedTime(15000);
 
         KinesisProducer kinesis = new KinesisProducer(config);
+        System.out.println("Connecting to \"" + SampleProducer.STREAM_NAME + "\" Kinesis");
 
         // Put some records
         for (int i = 0; i < 100; ++i) {
-            String myData = "[DEMO]startMyData" + i + "endMyData";
+            String myData = "{\"PUAID\":9645500,\"fake\":\"a" + i + "\",\"operation\":\"3\"," +
+                "\"update_mask\":\"0001000011000011000000000\",\"table\":\"dbo_EmailLogin_CT\",\"valid_update\":true}";
             ByteBuffer data = ByteBuffer.wrap(myData.getBytes("UTF-8"));
             // doesn't block
             kinesis.addUserRecord(SampleProducer.STREAM_NAME, "myPartitionKey", data);

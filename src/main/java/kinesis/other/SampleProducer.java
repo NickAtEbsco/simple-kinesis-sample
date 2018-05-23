@@ -104,7 +104,7 @@ public class SampleProducer {
     /**
      * Change this to your stream name.
      */
-    public static final String STREAM_NAME = "SyncProfileTest";
+    public static final String STREAM_NAME = "KinesisUserProfileSyncA-SharedResourceManagement-AWSNVirginia-DeliveryLocal";
     
     /**
      * Change this to the region you are using.
